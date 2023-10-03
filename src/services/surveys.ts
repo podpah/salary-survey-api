@@ -28,7 +28,8 @@ export async function getSurveyService(id: string) {
 }
 
 export async function putSurveyService(id: string, updatedSurvey: Survey) {
-  const result = await col.updateOne(id, { $set: updatedSurvey });
+  const query = { _id: new ObjectId(id) };
+  const result = await col.updateOne(query, { $set: updatedSurvey });
   if (!result) {
     return new Error(`Put request failed :(`);
   }
