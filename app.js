@@ -8,7 +8,7 @@ const client = new MongoClient(url);
 // client.connect()
 const db = client.db("data")
 const col = db.collection("objects")
-col.insertOne({"test":"True"})
+// col.insertOne({"test":"True"})
 
 
 const app = express();
