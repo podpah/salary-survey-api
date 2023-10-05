@@ -17,20 +17,22 @@ No ID / Get all
 ```json
 [
     {
-        "survey": {
-            "industry": "Insurance",
-            "old_salary": 25000,
-            "new_salary": 40000,
-            "apprenticeship_grade": "distinction"
-        }
+        "industry": "Finance",
+        "old_salary": 25000,
+        "new_salary": 45000,
+        "apprenticeship_grade": "distinction"
     },
     {
-        "survey": {
-            "industry": "Finance",
-            "old_salary": 25000,
-            "new_salary": 45000,
-            "apprenticeship_grade": "distinction"
-        }
+        "industry": "Finance",
+        "old_salary": 25000,
+        "new_salary": 45000,
+        "apprenticeship_grade": "distinction"
+    },
+    {
+        "industry": "Finance",
+        "old_salary": 25000,
+        "new_salary": 40000,
+        "apprenticeship_grade": "distinction"
     }
 ]
 ```
@@ -38,12 +40,10 @@ No ID / Get all
 With ID / Get one
 ```json
 {
-    "survey": {
-        "industry": "Finance",
-        "old_salary": 25000,
-        "new_salary": 45000,
-        "apprenticeship_grade": "distinction"
-    }
+    "industry": "Finance",
+    "old_salary": 25000,
+    "new_salary": 40000,
+    "apprenticeship_grade": "distinction"
 }
 ```
 
