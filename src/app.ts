@@ -14,10 +14,11 @@ import cors from "cors";
 
 import * as middlewares from "./middlewares";
 import {
-  postSurvey,
-  getSurveys,
-  getSurvey,
-  putSurvey,
+    postSurvey,
+    getSurveys,
+    getSurvey,
+    putSurvey,
+    deleteSurvey
 } from "./controllers/surveys";
 
 require("dotenv").config();
@@ -33,6 +34,7 @@ app.get("/surveys", getSurveys);
 app.get("/surveys/:id", getSurvey);
 app.post("/surveys", postSurvey);
 app.put("/surveys/:id", putSurvey);
+app.delete("/surveys/:id", deleteSurvey);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
