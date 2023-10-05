@@ -7,6 +7,12 @@ API for keeping track of salaries to allow for better informed conversations.
 # GET `/surveys/{id?}`
 *ID is optional*
 
+## Query params
+| Query param         | Value  |
+|--|---|
+| grade | "pass" \| "merit" \| "distinction" |
+| industry | "finance"  |
+*P.S. grade is an enum - the only values that return anything will be pass, merit and distinction*
 ## Success Response
 
 Code: `200 OK`
@@ -17,19 +23,19 @@ No ID / Get all
 ```json
 [
     {
-        "industry": "Finance",
+        "industry": "finance",
+        "old_salary": 25000,
+        "new_salary": 42000,
+        "apprenticeship_grade": "merit"
+    },
+    {
+        "industry": "finance",
         "old_salary": 25000,
         "new_salary": 45000,
         "apprenticeship_grade": "distinction"
     },
     {
-        "industry": "Finance",
-        "old_salary": 25000,
-        "new_salary": 45000,
-        "apprenticeship_grade": "distinction"
-    },
-    {
-        "industry": "Finance",
+        "industry": "finance",
         "old_salary": 25000,
         "new_salary": 40000,
         "apprenticeship_grade": "distinction"
@@ -40,7 +46,7 @@ No ID / Get all
 With ID / Get one
 ```json
 {
-    "industry": "Finance",
+    "industry": "finance",
     "old_salary": 25000,
     "new_salary": 40000,
     "apprenticeship_grade": "distinction"
@@ -53,7 +59,7 @@ With ID / Get one
 
 ```json
 {
-    "industry" : "Finance",
+    "industry" : "finance",
     "old_salary" : 25000,
     "new_salary" : 45000,
     "apprenticeship_grade" : "distinction"
@@ -78,7 +84,7 @@ Code: `201 OK`
 
 ```json
 {
-    "industry" : "Finance",
+    "industry" : "finance",
     "old_salary" : 25000,
     "new_salary" : 47000,
     "apprenticeship_grade" : "distinction"
@@ -93,7 +99,7 @@ Code: `200 OK`
 
 ```json
 {
-    "industry" : "Finance",
+    "industry" : "finance",
     "old_salary" : 25000,
     "new_salary" : 47000,
     "apprenticeship_grade" : "distinction"
