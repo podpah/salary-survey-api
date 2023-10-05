@@ -12,7 +12,9 @@ API for keeping track of salaries to allow for better informed conversations.
 |--|---|
 | grade | "pass" \| "merit" \| "distinction" |
 | industry | "finance"  |
+
 *P.S. grade is an enum - the only values that return anything will be pass, merit and distinction*
+
 ## Success Response
 
 Code: `200 OK`
