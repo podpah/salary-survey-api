@@ -30,6 +30,52 @@ export async function getSurveysService(params : any) {
     return result;
 }
 
+export async function getSalaryAverageService(query: any) {
+    let pipeline = new Array;
+    if (query.industry) {
+        pipeline = [
+            {
+                $match: {
+                    industry: query.industry
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    average_new_salary: { $avg: '$new_salary' },
+                },
+            },
+            {
+                $project: {
+                    _id: 0, 
+                    average_new_salary: { $round: ['$average_new_salary', 2] },
+                },
+            },
+        ];
+    }
+    else {
+        pipeline = [
+            {
+                $group: {
+                    _id: null,
+                    average_new_salary: { $avg: '$new_salary' },
+                },
+            },
+            {
+                $project: {
+                    _id: 0, 
+                    average_new_salary: { $round: ['$average_new_salary', 2] },
+                },
+            },
+        ];
+    }
+
+
+    let result = await col.aggregate(pipeline).next();
+    result = result.average_new_salary
+    return result;
+}
+
 export async function getSurveyService(id: string) {
     const query = { _id: new ObjectId(id)  };
     const result = (await col.findOne(query, { projection: { _id: 0}})) as Survey;
