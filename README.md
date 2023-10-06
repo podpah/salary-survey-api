@@ -1,3 +1,4 @@
+<div style="font-family: 'Comic Sans MS', cursive;">
 # About
 API for keeping track of salaries to allow for better informed conversations.
 
@@ -5,13 +6,13 @@ API for keeping track of salaries to allow for better informed conversations.
 # API Docs
 
 # GET `/surveys/{id?}`
-*ID is optional*
+*ID is optional.*
 
 ## Query params
-| Query param         | Value  |
-|--|---|
-| grade | "pass" \| "merit" \| "distinction" |
-| industry | "finance"  |
+| Query param         | Value  | Optional |
+|--|---|---|
+| grade | pass \| merit \| distinction | True|
+| industry | finance  | True |
 *P.S. grade is an enum - the only values that return anything will be pass, merit and distinction*
 ## Success Response
 
@@ -51,6 +52,24 @@ With ID / Get one
     "new_salary": 40000,
     "apprenticeship_grade": "distinction"
 }
+```
+
+# GET `/avg?industry=`
+Returns the average new salary for apprentices of all industries
+
+## Query params
+| Query param         | Value  | Optional |
+|--|---|---|
+| industry | finance  | True |
+
+## Success Response
+
+Code: `200 OK`
+
+**Response body:**
+
+```json
+39400
 ```
 
 # POST `/surveys/`
@@ -105,3 +124,4 @@ Code: `200 OK`
     "apprenticeship_grade" : "distinction"
 }
 ```
+</div>

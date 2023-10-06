@@ -17,6 +17,7 @@ import {
     postSurvey,
     getSurveys,
     getSurvey,
+    getSalaryAverage,
     putSurvey,
     deleteSurvey
 } from "./controllers/surveys";
@@ -32,6 +33,7 @@ app.use(express.json());
 
 app.get("/surveys", getSurveys);
 app.get("/surveys/:id", getSurvey);
+app.get("/avg", getSalaryAverage);
 app.post("/surveys", postSurvey);
 app.put("/surveys/:id", putSurvey);
 app.delete("/surveys/:id", deleteSurvey);

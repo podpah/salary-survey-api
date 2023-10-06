@@ -1,8 +1,10 @@
+import { RemoveUserOptions } from "mongodb";
 import { Survey } from "../../lib/types";
 import {
     deleteSurveyService,
     getSurveyService,
     getSurveysService,
+    getSalaryAverageService,
     postSurveyService,
     putSurveyService,
 } from "../services/surveys";
@@ -25,6 +27,11 @@ export async function getSurvey(req: Request, res: Response) {
     const id = req.params.id;
     const survey = await getSurveyService(id);
     res.status(200).json(survey);
+}
+
+export async function getSalaryAverage(req: Request, res: Response) {
+    const avg = await getSalaryAverageService(req.query)
+    res.status(200).json(avg)
 }
 
 export async function putSurvey(req: Request, res: Response) {
