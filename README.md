@@ -9,11 +9,20 @@ API for keeping track of salaries to allow for better informed conversations.
 *ID is optional.*
 
 ## Query params
+<<<<<<< HEAD
 | Query param         | Value  | Optional |
 |--|---|---|
 | grade | pass \| merit \| distinction | True|
 | industry | finance  | True |
+=======
+| Query param         | Value  |
+|--|---|
+| grade | "pass" \| "merit" \| "distinction" |
+| industry | "finance"  |
+
+>>>>>>> 8533e2d530f3d06b53156a39f1f7cbe0df0e2cb6
 *P.S. grade is an enum - the only values that return anything will be pass, merit and distinction*
+
 ## Success Response
 
 Code: `200 OK`
