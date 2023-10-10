@@ -32,7 +32,29 @@ export async function getSurveysService(params : any) {
 
 export async function getSalaryAverageService(query: any) {
     let pipeline = new Array;
-    if (query.industry) {
+    if (query.industry && query.grade) {
+        pipeline = [
+            {
+                $match: {
+                    industry: query.industry,
+                    apprenticeship_grade: query.grade
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    average_new_salary: { $avg: '$new_salary' },
+                },
+            },
+            {
+                $project: {
+                    _id: 0, 
+                    average_new_salary: { $round: ['$average_new_salary', 0] },
+                },
+            },
+        ];
+    }
+    else if (query.industry) {
         pipeline = [
             {
                 $match: {
@@ -48,7 +70,28 @@ export async function getSalaryAverageService(query: any) {
             {
                 $project: {
                     _id: 0, 
-                    average_new_salary: { $round: ['$average_new_salary', 2] },
+                    average_new_salary: { $round: ['$average_new_salary', 0] },
+                },
+            },
+        ];
+    }
+    else if (query.industry) {
+        pipeline = [
+            {
+                $match: {
+                    apprenticeship_grade: query.grade
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    average_new_salary: { $avg: '$new_salary' },
+                },
+            },
+            {
+                $project: {
+                    _id: 0, 
+                    average_new_salary: { $round: ['$average_new_salary', 0] },
                 },
             },
         ];
@@ -64,7 +107,7 @@ export async function getSalaryAverageService(query: any) {
             {
                 $project: {
                     _id: 0, 
-                    average_new_salary: { $round: ['$average_new_salary', 2] },
+                    average_new_salary: { $round: ['$average_new_salary', 0] },
                 },
             },
         ];
