@@ -58,13 +58,14 @@ With ID / Get one
 }
 ```
 
-# GET `/avg?industry=`
-Returns the average new salary for apprentices of all industries
+# GET `/avg`
+Returns the average new salary for apprentices of all industries. You can also filter by industry and grade to get a better result
 
 ## Query params
 | Query param         | Value  | Optional |
 |--|---|---|
 | industry | finance  | True |
+| grade | merit  | True |
 
 ## Success Response
 
